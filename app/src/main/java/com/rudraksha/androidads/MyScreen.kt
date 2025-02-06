@@ -22,7 +22,7 @@ fun MyScreen(modifier: Modifier) {
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        val defaultAdUnitIdBanner = "ca-app-pub-3940256099942544/6300978111"
+        val defaultAdUnitIdBanner = "ca-app-pub-3940256099942544/6300978111" // For testing
 
         Text("Ad Interstitial")
         InterstitialAdButton(LocalContext.current)
@@ -38,7 +38,7 @@ fun MyScreen(modifier: Modifier) {
 
 @Composable
 fun InterstitialAdButton(context: Context) {
-    val defaultAdUnitIdInterstitial = "ca-app-pub-3940256099942544/1033173712"
+    val defaultAdUnitIdInterstitial = "ca-app-pub-3940256099942544/1033173712" // For testing
     val adManager = remember { AdMobInterstitial(context, defaultAdUnitIdInterstitial) }
     LaunchedEffect(Unit) { adManager.loadAd() }
 
@@ -49,7 +49,7 @@ fun InterstitialAdButton(context: Context) {
 
 @Composable
 fun RewardedAdButton(context: Context) {
-    val defaultAdUnitIdRewarded = "ca-app-pub-3940256099942544/5224354917"
+    val defaultAdUnitIdRewarded = "ca-app-pub-3940256099942544/5224354917" // For testing
     val adManager = remember { AdMobRewarded(context, defaultAdUnitIdRewarded) }
     LaunchedEffect(Unit) { adManager.loadAd() }
 
