@@ -50,8 +50,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+    // Google ads
     implementation("com.google.android.gms:play-services-ads:22.6.0")
 
+    // Facebook ads
     implementation("com.facebook.android:audience-network-sdk:6.16.0")
 
     testImplementation(libs.junit)
