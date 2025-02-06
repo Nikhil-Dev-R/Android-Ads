@@ -12,9 +12,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.rudraksha.androidads.ads.AdMobInterstitial
-import com.rudraksha.androidads.ads.AdMobRewarded
-import com.rudraksha.androidads.ads.BannerAdView
+import com.rudraksha.androidads.ads.facebook.FacebookBannerAd
+import com.rudraksha.androidads.ads.facebook.FacebookInterstitialAd
+import com.rudraksha.androidads.ads.facebook.FacebookRewardedAd
+import com.rudraksha.androidads.ads.google.AdMobInterstitial
+import com.rudraksha.androidads.ads.google.AdMobRewarded
+import com.rudraksha.androidads.ads.google.BannerAdView
 
 @Composable
 fun MyScreen(modifier: Modifier) {
@@ -22,17 +25,29 @@ fun MyScreen(modifier: Modifier) {
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        val defaultAdUnitIdBanner = "ca-app-pub-3940256099942544/6300978111" // For testing
+        val context = LocalContext.current
+        // Google Ads
+//        val defaultAdUnitIdBanner = "ca-app-pub-3940256099942544/6300978111" // For testing
+//
+//        Text("Ad Interstitial")
+//        InterstitialAdButton(context)
+//
+//        Text("Ad Rewards")
+//        RewardedAdButton(context)
+//
+//        Text("Ad Banner")
+//        Spacer(modifier = Modifier.weight(1f))  // Push ad to bottom
+//        BannerAdView(adUnitId = defaultAdUnitIdBanner) // Test Ad ID
 
-        Text("Ad Interstitial")
-        InterstitialAdButton(LocalContext.current)
-
-        Text("Ad Rewards")
-        RewardedAdButton(LocalContext.current)
-
-        Text("Ad Banner")
-        Spacer(modifier = Modifier.weight(1f))  // Push ad to bottom
-        BannerAdView(adUnitId = defaultAdUnitIdBanner) // Test Ad ID
+        // Facebook Ads
+//        Text("Ad Interstitial")
+//        InterstitialAdButtonFacebook(context)
+//
+//        Text("Ad Rewards")
+//        RewardedAdButtonFacebook(context)
+//
+//        Spacer(modifier = Modifier.weight(1f)) // Push ad to bottom
+//        FacebookBannerAd(context, "YOUR_PLACEMENT_ID")
     }
 }
 
@@ -60,4 +75,25 @@ fun RewardedAdButton(context: Context) {
     }
 }
 
+@Composable
+fun InterstitialAdButtonFacebook(context: Context) {
+    val adManager = remember { FacebookInterstitialAd(context, "YOUR_PLACEMENT_ID") }
+
+    LaunchedEffect(Unit) { adManager.loadAd() }
+
+    Button(onClick = { adManager.showAd() }) {
+        Text("Show Interstitial Ad")
+    }
+}
+
+@Composable
+fun RewardedAdButtonFacebook(context: Context) {
+    val adManager = remember { FacebookRewardedAd(context, "YOUR_PLACEMENT_ID") }
+
+    LaunchedEffect(Unit) { adManager.loadAd() }
+
+    Button(onClick = { adManager.showAd() }) {
+        Text("Show Rewarded Ad")
+    }
+}
 

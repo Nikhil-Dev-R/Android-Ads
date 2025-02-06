@@ -8,6 +8,7 @@ pluginManagement {
             }
         }
         mavenCentral()
+        maven ("https://artifact.bytedance.com/repository/pangle") // Add this line
         gradlePluginPortal()
     }
 }
@@ -16,6 +17,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven ("https://artifact.bytedance.com/repository/pangle") // Add this line
     }
 }
 

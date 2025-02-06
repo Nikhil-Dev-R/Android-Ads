@@ -1,4 +1,4 @@
-package com.rudraksha.androidads.ads
+package com.rudraksha.androidads.ads.google
 
 import android.app.Activity
 import android.content.Context
