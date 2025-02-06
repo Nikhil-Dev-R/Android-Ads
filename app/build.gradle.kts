@@ -54,7 +54,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-ads:22.6.0")
 
     // Facebook ads
-    implementation("com.facebook.android:audience-network-sdk:6.16.0")
+    implementation(libs.audience.network.sdk)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
